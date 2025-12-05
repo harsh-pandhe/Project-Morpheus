@@ -59,13 +59,13 @@ const TimelineNode = ({ event, index, isLast }: {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.2 }}
       viewport={{ once: true }}
-      className="relative flex gap-8 md:gap-12"
+      className="relative flex gap-3 xs:gap-4 sm:gap-6 md:gap-8 lg:gap-12"
     >
       {/* Line and node */}
       <div className="flex flex-col items-center shrink-0">
         <motion.div
           className={`
-            relative z-10 w-16 h-16 rounded-full border-3 
+            relative z-10 w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 xs:border-3 
             flex items-center justify-center cursor-pointer mb-0
             ${event.color} border-current
             ${isFlashing ? 'node-pulse' : ''}
@@ -80,7 +80,7 @@ const TimelineNode = ({ event, index, isLast }: {
           whileTap={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <Icon size={24} />
+          <Icon size={16} className="xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-6 md:h-6" />
           
           {/* Ripple effect */}
           {event.status === 'active' && (
@@ -101,7 +101,7 @@ const TimelineNode = ({ event, index, isLast }: {
         
         {/* Enhanced connecting line */}
         {!isLast && (
-          <div className={`relative w-1 h-full ${event.lineColor} rounded-full`} style={{ minHeight: '120px' }}>
+          <div className={`relative w-0.5 xs:w-1 h-full ${event.lineColor} rounded-full min-h-[80px] xs:min-h-[100px] sm:min-h-[120px]`}>
             {/* Animated pulse on line */}
             {event.status === 'active' && (
               <>
@@ -132,31 +132,31 @@ const TimelineNode = ({ event, index, isLast }: {
 
       {/* Content */}
       <motion.div 
-        className={`group flex-1 min-w-0 ${!isLast ? 'pb-8' : 'pb-0'}`}
-        whileHover={{ x: 10 }}
+        className={`group flex-1 min-w-0 ${!isLast ? 'pb-4 xs:pb-6 sm:pb-8' : 'pb-0'}`}
+        whileHover={{ x: 5 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <div className="bg-black/40 backdrop-blur-sm border border-primary/20 rounded-lg p-8 md:p-10 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 min-w-full">
-          <div className="flex items-baseline gap-6 mb-6">
+        <div className="bg-black/40 backdrop-blur-sm border border-primary/20 rounded-md sm:rounded-lg p-3 xs:p-4 sm:p-6 md:p-8 lg:p-10 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 min-w-full">
+          <div className="flex flex-col xs:flex-row xs:items-baseline gap-2 xs:gap-4 sm:gap-6 mb-3 xs:mb-4 sm:mb-6">
             <motion.span 
-              className={`font-arcade text-3xl md:text-4xl lg:text-5xl ${event.color} font-bold`}
+              className={`font-arcade text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl ${event.color} font-bold break-words`}
               whileHover={{ scale: 1.1 }}
             >
               {event.date}
             </motion.span>
-            <span className="font-mono text-base text-muted-foreground bg-muted-foreground/10 px-3 py-2 rounded">
+            <span className="font-mono text-xs xs:text-sm sm:text-base text-muted-foreground bg-muted-foreground/10 px-2 xs:px-3 py-1 xs:py-2 rounded text-center">
               {event.year}
             </span>
           </div>
           
           <motion.h3 
-            className={`font-arcade text-2xl md:text-3xl lg:text-4xl ${event.color} mb-6 font-bold tracking-wide`}
+            className={`font-arcade text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl ${event.color} mb-3 xs:mb-4 sm:mb-6 font-bold tracking-wide break-words`}
             whileHover={{ x: 5 }}
           >
             {event.title}
           </motion.h3>
           
-          <p className="font-mono text-lg md:text-xl text-gray-300 max-w-4xl leading-relaxed mb-6">
+          <p className="font-mono text-sm xs:text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl leading-relaxed mb-3 xs:mb-4 sm:mb-6 break-words">
             {event.description}
           </p>
 
@@ -168,7 +168,7 @@ const TimelineNode = ({ event, index, isLast }: {
               whileHover={{ scale: 1.1 }}
             >
               <motion.span 
-                className="font-mono text-base md:text-lg text-primary border-2 border-primary bg-primary/20 px-6 py-3 rounded font-bold shadow-lg shadow-primary/30"
+                className="font-mono text-xs xs:text-sm sm:text-base md:text-lg text-primary border-2 border-primary bg-primary/20 px-3 xs:px-4 sm:px-6 py-2 xs:py-3 rounded font-bold shadow-lg shadow-primary/30 break-words text-center"
                 animate={{ 
                   boxShadow: [
                     "0 0 10px rgba(0, 255, 65, 0.5)",
@@ -191,7 +191,7 @@ const TimelineNode = ({ event, index, isLast }: {
               whileHover={{ scale: 1.1 }}
             >
               <motion.span 
-                className="font-mono text-base md:text-lg text-secondary border-2 border-secondary bg-secondary/20 px-6 py-3 rounded font-bold shadow-lg shadow-secondary/30"
+                className="font-mono text-xs xs:text-sm sm:text-base md:text-lg text-secondary border-2 border-secondary bg-secondary/20 px-3 xs:px-4 sm:px-6 py-2 xs:py-3 rounded font-bold shadow-lg shadow-secondary/30 break-words text-center"
                 animate={{ 
                   opacity: [1, 0.5, 1],
                   boxShadow: [
@@ -214,7 +214,7 @@ const TimelineNode = ({ event, index, isLast }: {
               className="mt-4 inline-block"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="font-mono text-base md:text-lg text-muted-foreground border border-muted-foreground/50 bg-muted-foreground/10 px-6 py-3 rounded">
+              <span className="font-mono text-xs xs:text-sm sm:text-base md:text-lg text-muted-foreground border border-muted-foreground/50 bg-muted-foreground/10 px-3 xs:px-4 sm:px-6 py-2 xs:py-3 rounded break-words text-center">
                 📅 UPCOMING
               </span>
             </motion.div>
@@ -230,7 +230,7 @@ const TimelineSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="timeline" className="relative py-32 px-4 bg-black/70 backdrop-blur-sm" ref={ref}>
+    <section id="timeline" className="relative py-12 sm:py-16 md:py-24 lg:py-32 px-2 xs:px-3 sm:px-4 bg-black/70 backdrop-blur-sm" ref={ref}>
       {/* Multiple background layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-secondary/5 pointer-events-none" />
       
@@ -273,22 +273,22 @@ const TimelineSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20 relative z-10"
+          className="text-center mb-8 xs:mb-10 sm:mb-16 md:mb-20 relative z-10"
         >
-          <div className="inline-block p-8 border-2 border-primary/30 bg-black/60 backdrop-blur-sm rounded-lg mb-6 shadow-2xl shadow-primary/20">
+          <div className="inline-block p-3 xs:p-4 sm:p-6 md:p-8 border border-primary/30 xs:border-2 bg-black/60 backdrop-blur-sm rounded-md sm:rounded-lg mb-4 xs:mb-6 shadow-lg xs:shadow-2xl shadow-primary/20 w-full max-w-sm xs:max-w-md sm:max-w-lg mx-auto">
             <motion.p 
-              className="font-mono text-sm text-secondary mb-4 tracking-widest font-bold"
+              className="font-mono text-[10px] xs:text-xs sm:text-sm text-secondary mb-2 xs:mb-3 sm:mb-4 tracking-wider xs:tracking-widest font-bold break-words"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               {'>'} MISSION_TIMELINE.EXE
             </motion.p>
-            <h2 className="font-arcade text-4xl md:text-5xl lg:text-6xl text-primary text-glow mb-4 tracking-wider">
+            <h2 className="font-arcade text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary text-glow mb-2 xs:mb-3 sm:mb-4 tracking-wide xs:tracking-wider break-words">
               THE PATH
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto opacity-60" />
             <motion.div 
-              className="mt-4 text-lg text-gray-400 font-mono"
+              className="mt-2 xs:mt-3 sm:mt-4 text-xs xs:text-sm sm:text-base md:text-lg text-gray-400 font-mono break-words"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -298,7 +298,7 @@ const TimelineSection = () => {
           </div>
         </motion.div>
 
-        <div className="ml-4 md:ml-8 space-y-0">
+        <div className="ml-2 xs:ml-3 sm:ml-4 md:ml-8 space-y-0">
           {timelineEvents.map((event, index) => (
             <TimelineNode 
               key={index} 

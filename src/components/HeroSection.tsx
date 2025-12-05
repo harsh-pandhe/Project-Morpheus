@@ -154,15 +154,15 @@ const HeroSection = () => {
         </AnimatePresence>
       </div>
       
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1"
         >
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -178,7 +178,7 @@ const HeroSection = () => {
               MORPHEUS
             </h1>
             
-            <p className="font-mono text-muted-foreground text-lg max-w-md">
+            <p className="font-mono text-muted-foreground text-base sm:text-lg max-w-md mx-auto lg:mx-0">
               WAKE UP. BUILD THE FUTURE.
               <span className="text-primary animate-blink">_</span>
             </p>
@@ -187,14 +187,14 @@ const HeroSection = () => {
 
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-4">
             <motion.a
               href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 255, 65, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              className="arcade-btn px-8 py-4 text-primary-foreground font-arcade text-sm font-bold shadow-lg hover:shadow-primary/50 transition-all duration-300 inline-block"
+              className="arcade-btn px-6 sm:px-8 py-3 sm:py-4 text-primary-foreground font-arcade text-sm font-bold shadow-lg hover:shadow-primary/50 transition-all duration-300 inline-block text-center"
             >
               ▶ REGISTER NOW
             </motion.a>
@@ -204,7 +204,7 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 0, 64, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-secondary px-8 py-4 text-secondary font-arcade text-sm font-bold hover:bg-secondary/10 transition-all duration-300 inline-block"
+              className="border-2 border-secondary px-6 sm:px-8 py-3 sm:py-4 text-secondary font-arcade text-sm font-bold hover:bg-secondary/10 transition-all duration-300 inline-block text-center"
             >
               CONTACT US
             </motion.a>
@@ -216,10 +216,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="perspective-1000 flex justify-center"
+            className="perspective-1000 flex justify-center order-1 lg:order-2"
           >
             <div
-              className="preserve-3d relative w-full max-w-md aspect-[3/4] cursor-pointer"
+              className="preserve-3d relative w-full max-w-sm sm:max-w-md aspect-[3/4] cursor-pointer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{
