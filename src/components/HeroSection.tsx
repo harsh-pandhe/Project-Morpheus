@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Disc3 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Disc3, Menu, X } from 'lucide-react';
 import GLBLoader from './GLBLoader';
 import {
   NavigationMenu,
@@ -11,6 +11,7 @@ import {
 
 const HeroSection = () => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -35,35 +36,122 @@ const HeroSection = () => {
       
       {/* Top Navigation Bar */}
       <div className="absolute top-0 left-0 right-0 z-20 py-4">
-        <div className="w-full flex justify-center px-4">
-          <NavigationMenu>
-            <NavigationMenuList className="gap-6">
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/" className="text-sm hover:underline">Home</NavigationMenuLink>
-              </NavigationMenuItem>
+        <div className="w-full flex justify-between items-center px-4 md:justify-center">
+          {/* Logo/Brand - Mobile */}
+          <div className="md:hidden">
+            <span className="font-arcade text-primary text-lg"> PROJECT MORPHEUS</span>
+          </div>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/problem-statement" className="text-sm hover:underline">Problem Statement</NavigationMenuLink>
-              </NavigationMenuItem>
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList className="gap-6">
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/" className="text-sm hover:underline">Home</NavigationMenuLink>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/guidelines" className="text-sm hover:underline">Guidelines</NavigationMenuLink>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/problem-statement" className="text-sm hover:underline">Problem Statement</NavigationMenuLink>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/committees" className="text-sm hover:underline">Committees</NavigationMenuLink>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/guidelines" className="text-sm hover:underline">Guidelines</NavigationMenuLink>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/faqs" className="text-sm hover:underline">FAQs</NavigationMenuLink>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/committees" className="text-sm hover:underline">Committees</NavigationMenuLink>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670" target="_blank" className="text-sm hover:underline bg-secondary/20 px-3 py-1 rounded border border-secondary/50 hover:bg-secondary/30 transition-colors">Register Now</NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="/faqs" className="text-sm hover:underline">FAQs</NavigationMenuLink>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670" target="_blank" className="text-sm hover:underline bg-secondary/20 px-3 py-1 rounded border border-secondary/50 hover:bg-secondary/30 transition-colors">Register Now</NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            className="md:hidden p-2 text-primary hover:text-primary/80 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-t border-primary/20"
+            >
+              <div className="px-4 py-6 space-y-4">
+                <motion.a
+                  href="/"
+                  className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {'>'} Home
+                </motion.a>
+                
+                <motion.a
+                  href="/problem-statement"
+                  className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {'>'} Problem Statement
+                </motion.a>
+                
+                <motion.a
+                  href="/guidelines"
+                  className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {'>'} Guidelines
+                </motion.a>
+                
+                <motion.a
+                  href="/committees"
+                  className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {'>'} Committees
+                </motion.a>
+                
+                <motion.a
+                  href="/faqs"
+                  className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {'>'} FAQs
+                </motion.a>
+                
+                <motion.a
+                  href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670"
+                  target="_blank"
+                  className="block font-mono text-sm text-secondary hover:text-secondary/80 transition-colors py-3 px-4 mt-4 bg-secondary/10 border border-secondary/30 rounded text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  ▶ REGISTER NOW
+                </motion.a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       
       <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
