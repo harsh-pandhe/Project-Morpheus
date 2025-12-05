@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Disc3 } from 'lucide-react';
 import GLBLoader from './GLBLoader';
@@ -10,38 +10,7 @@ import {
 } from "@/components/ui/8bit/navigation-menu";
 
 const HeroSection = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const targetDate = new Date();
-    targetDate.setHours(12, 0, 0, 0); // Today at 12 PM
-    const targetTime = targetDate.getTime();
-
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const difference = targetTime - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        });
-      }
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -127,25 +96,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Countdown */}
-          <div className="glass-card p-8 inline-block border border-primary/40 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:border-primary/60">
-            <p className="font-arcade text-xs text-primary/80 mb-4 tracking-widest">{'>'} TIME UNTIL BREACH</p>
-            <div className="flex gap-6">
-              {[
-                { value: timeLeft.days, label: 'DAYS' },
-                { value: timeLeft.hours, label: 'HRS' },
-                { value: timeLeft.minutes, label: 'MIN' },
-                { value: timeLeft.seconds, label: 'SEC' },
-              ].map((item, i) => (
-                <div key={i} className="text-center px-2">
-                  <div className="font-arcade text-3xl sm:text-4xl text-primary text-glow font-bold">
-                    {String(item.value).padStart(2, '0')}
-                  </div>
-                  <div className="font-mono text-xs text-primary/60 mt-2 tracking-wider">{item.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-4 pt-4">
