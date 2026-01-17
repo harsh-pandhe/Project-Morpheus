@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: 'Who can participate?',
-    answer: 'Teams of 2-4 members can participate. All skill levels welcome—from first-time hackers to seasoned developers. What matters is your drive to create something meaningful.',
+    answer: 'Teams of 3-5 members can participate. All skill levels welcome—from first-time hackers to seasoned developers. What matters is your drive to create something meaningful.',
     icon: Users,
   },
   {
