@@ -16,7 +16,6 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-    { id: '25', name: 'Yash Kamble', designation: 'Board Member', phone: '9920441541', email: 'yashkambleoff@gmail.com', linkedin: 'https://www.linkedin.com/in/yash-k-09425825b', category: 'board', codename: 'NEXUS' },
 
   { id: '1', name: 'Sairaj Kulat', designation: 'President', phone: '8459958405', email: 'kulatsairaj469@gmail.com', linkedin: 'https://linkedin.com/in/sairaj-kulat', category: 'leadership', codename: 'NEO' },
   { id: '2', name: 'Suyog Mapari', designation: 'President', phone: '8767569791', email: 'maparisuyog@gmail.com', linkedin: 'https://www.linkedin.com/in/suyog-mapari-a9572031b', category: 'leadership', codename: 'TANK' },
@@ -28,7 +27,6 @@ const teamMembers: TeamMember[] = [
   { id: '26', name: 'Radhika Sandip Bade', designation: 'Board Member', phone: '7972301969', email: 'radhikabade14@gmail.com', linkedin: 'https://www.linkedin.com/in/radhika-bade-97963532a', category: 'board', codename: 'PULSE' },
   { id: '27', name: 'Omkar Sathe', designation: 'Board Member', phone: '9767155514', email: 'omkarsathe6666@gmail.com', linkedin: 'https://www.linkedin.com/in/omkar-sathe', category: 'board', codename: 'HAVEN' },
   { id: '28', name: 'Dnyaneshwar Avhad', designation: 'Board Member', phone: '7775000747', email: 'roshavhad18@gmail.com', linkedin: 'https://www.linkedin.com/in/dnyaneshwar-avhad', category: 'board', codename: 'ATLAS' },
-  { id: '29', name: 'Vaishnavi Shinde', designation: 'Board Member', phone: '8862082952', email: 'vdshinde0007@gmail.com', linkedin: 'https://www.linkedin.com/in/vaishnavi-d-shinde-lnkin07', category: 'board', codename: 'TRINITY' },
   { id: '6', name: 'Tushar Bhandare', designation: 'Web Development Head', phone: '9373513273', email: 'hackingbro780@gmail.com', linkedin: 'https://www.linkedin.com/in/tushar-bhandare-000334283', category: 'heads', codename: 'CIPHER' },
   { id: '7', name: 'Aryan Raj', designation: 'Technical Head', phone: '6203728310', email: 'rajaryan6203@gmail.com', linkedin: 'https://www.linkedin.com/in/aryan-raj-504385370', category: 'heads', codename: 'MORPHEUS' },
   { id: '8', name: 'Aniket Raj', designation: 'R&D Head', phone: '9693698429', email: 'aniketraj5404@gmail.com', linkedin: 'https://www.linkedin.com/in/aniket-raj-a0a065364', category: 'heads', codename: 'DOZER' },
