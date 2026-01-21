@@ -16,17 +16,19 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
+    { id: '25', name: 'Yash Kamble', designation: 'Board Member', phone: '9920441541', email: 'yashkambleoff@gmail.com', linkedin: 'https://www.linkedin.com/in/yash-k-09425825b', category: 'board', codename: 'NEXUS' },
+
   { id: '1', name: 'Sairaj Kulat', designation: 'President', phone: '8459958405', email: 'kulatsairaj469@gmail.com', linkedin: 'https://linkedin.com/in/sairaj-kulat', category: 'leadership', codename: 'NEO' },
   { id: '2', name: 'Suyog Mapari', designation: 'President', phone: '8767569791', email: 'maparisuyog@gmail.com', linkedin: 'https://www.linkedin.com/in/suyog-mapari-a9572031b', category: 'leadership', codename: 'TANK' },
-  { id: '3', name: 'Khushi Ghule', designation: 'Vice President', phone: '7020294516', email: 'khushighule37@gmail.com', linkedin: 'https://linkedin.com/in/khushi-ghule', category: 'leadership', codename: 'TRINITY' },
+  { id: '3', name: 'Khushi Ghule', designation: 'Vice President', phone: '7020294516', email: 'khushighule37@gmail.com', linkedin: 'https://linkedin.com/in/khushi-ghule', category: 'leadership', codename: 'EMBER' },
   { id: '4', name: 'Bhumika Gade', designation: 'Convener', phone: '8390492006', email: 'gadebhumika460@gmail.com', linkedin: 'https://www.linkedin.com/in/bhumika-gade-79068b32a', category: 'leadership', codename: 'NIOBE' }, 
   { id: '5', name: 'Pranav Wadatkar', designation: 'Convener', phone: '8421056447', email: 'pranavwadatkar785@gmail.com', linkedin: 'https://linkedin.com/in/pranav-wadatkar', category: 'leadership', codename: 'ORACLE' },
   { id: '19', name: 'Harsh Pandhe', designation: 'Event Lead & Organizer', phone: '7208783332', email: 'harshpandhehome@gmail.com', linkedin: 'https://www.linkedin.com/in/harsh-pandhe-853a9121a/', category: 'leadership', codename: 'ARCHITECT' },
-  { id: '20', name: 'Dr. Rajesh Kumar', designation: 'Board Member', phone: '9876543210', email: 'rajesh.kumar@university.edu', linkedin: 'https://linkedin.com/in/rajesh-kumar', category: 'board', codename: 'SAGE' },
-  { id: '21', name: 'Prof. Priya Sharma', designation: 'Board Member', phone: '9876543211', email: 'priya.sharma@university.edu', linkedin: 'https://linkedin.com/in/priya-sharma', category: 'board', codename: 'VISION' },
-  { id: '22', name: 'Mr. Amit Patel', designation: 'Board Member', phone: '9876543212', email: 'amit.patel@industry.com', linkedin: 'https://linkedin.com/in/amit-patel', category: 'board', codename: 'PIONEER' },
-  { id: '23', name: 'Dr. Sunita Rao', designation: 'Board Member', phone: '9876543213', email: 'sunita.rao@university.edu', linkedin: 'https://linkedin.com/in/sunita-rao', category: 'board', codename: 'INNOVATOR' },
-  { id: '24', name: 'Mr. Vikram Singh', designation: 'Board Member', phone: '9876543214', email: 'vikram.singh@techcorp.com', linkedin: 'https://linkedin.com/in/vikram-singh', category: 'board', codename: 'STRATEGIST' },
+  { id: '30', name: 'Manas Pandurang Kale', designation: 'Board Member', phone: '9145005557', email: 'manaskale143@gmail.com', linkedin: 'https://www.linkedin.com/in/manas-kale-ba6b48279', category: 'board', codename: 'ORBIT' },
+  { id: '26', name: 'Radhika Sandip Bade', designation: 'Board Member', phone: '7972301969', email: 'radhikabade14@gmail.com', linkedin: 'https://www.linkedin.com/in/radhika-bade-97963532a', category: 'board', codename: 'PULSE' },
+  { id: '27', name: 'Omkar Sathe', designation: 'Board Member', phone: '9767155514', email: 'omkarsathe6666@gmail.com', linkedin: 'https://www.linkedin.com/in/omkar-sathe', category: 'board', codename: 'HAVEN' },
+  { id: '28', name: 'Dnyaneshwar Avhad', designation: 'Board Member', phone: '7775000747', email: 'roshavhad18@gmail.com', linkedin: 'https://www.linkedin.com/in/dnyaneshwar-avhad', category: 'board', codename: 'ATLAS' },
+  { id: '29', name: 'Vaishnavi Shinde', designation: 'Board Member', phone: '8862082952', email: 'vdshinde0007@gmail.com', linkedin: 'https://www.linkedin.com/in/vaishnavi-d-shinde-lnkin07', category: 'board', codename: 'TRINITY' },
   { id: '6', name: 'Tushar Bhandare', designation: 'Web Development Head', phone: '9373513273', email: 'hackingbro780@gmail.com', linkedin: 'https://www.linkedin.com/in/tushar-bhandare-000334283', category: 'heads', codename: 'CIPHER' },
   { id: '7', name: 'Aryan Raj', designation: 'Technical Head', phone: '6203728310', email: 'rajaryan6203@gmail.com', linkedin: 'https://www.linkedin.com/in/aryan-raj-504385370', category: 'heads', codename: 'MORPHEUS' },
   { id: '8', name: 'Aniket Raj', designation: 'R&D Head', phone: '9693698429', email: 'aniketraj5404@gmail.com', linkedin: 'https://www.linkedin.com/in/aniket-raj-a0a065364', category: 'heads', codename: 'DOZER' },
@@ -39,6 +41,7 @@ const teamMembers: TeamMember[] = [
   { id: '15', name: 'Samruddhi Deshmukh', designation: 'Hospitality Team Head', phone: '9096860827', email: 'deshmukhsamruddhi938@gmail.com', linkedin: 'https://www.linkedin.com/in/samruddhi-deshmukh-1b1a18319', category: 'coordinators', codename: 'SWITCH' },
   { id: '16', name: 'Shantanu Dubbewar', designation: 'Logistics Head', phone: '9503232911', email: 'shantanudubbewar@gmail.com', linkedin: 'https://www.linkedin.com/in/shantanu-dubbewar-74851b341', category: 'heads', codename: 'MOUSE' },
   { id: '17', name: 'Hariom Shukla', designation: 'Documentation Head', phone: '8810868287', email: 'shuklahariom081@gmail.com', linkedin: 'https://www.linkedin.com/in/hariom-shukla-a09b31335', category: 'coordinators', codename: 'LOCK' },
+  
 ];
 
 // Department icon display
