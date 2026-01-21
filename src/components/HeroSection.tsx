@@ -66,9 +66,6 @@ const HeroSection = () => {
                   <NavigationMenuLink href="/faqs" className="text-sm hover:underline">FAQs</NavigationMenuLink>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="/creator" className="text-sm hover:underline text-green-400 hover:text-green-300">Creator</NavigationMenuLink>
-                </NavigationMenuItem>
 
                 <NavigationMenuItem>
                   <NavigationMenuLink href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670" target="_blank" className="text-sm hover:underline bg-secondary/20 px-3 py-1 rounded border border-secondary/50 hover:bg-secondary/30 transition-colors">Register Now</NavigationMenuLink>
@@ -143,14 +140,7 @@ const HeroSection = () => {
                   {'>'} FAQs
                 </motion.a>
                 
-                <motion.a
-                  href="/creator"
-                  className="block font-mono text-sm text-green-400 hover:text-green-300 transition-colors py-2 border-b border-primary/10"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {'>'} Creator
-                </motion.a>
+                {/* Creator page intentionally removed */}
                 
                 <motion.a
                   href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670"
