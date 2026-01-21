@@ -36,9 +36,15 @@ const teamMembers: TeamMember[] = [
   { id: '12', name: 'Aditya Jangam', designation: 'Design & Creativity Head', phone: '7410544823', email: 'adityajangam221206@gmail.com', linkedin: 'https://www.linkedin.com/in/aditya-jangam-1164a932a', category: 'heads', codename: 'KEYMAKER' },
   { id: '13', name: 'Srushti Dhabale', designation: 'Event Management', phone: '7058361775', email: 'dhabalesrushti4@gmail.com', linkedin: 'https://linkedin.com/in/srushti-dhabale', category: 'coordinators', codename: 'ZEE' },
   { id: '14', name: 'Sourabh Kadam', designation: 'Event Management Head', phone: '7249404530', email: 'kadamsourabh79@gmail.com', linkedin: 'https://www.linkedin.com/in/kadam-sourabh-554a0a3a2', category: 'coordinators', codename: 'SPARKS' },
+<<<<<<< HEAD
   { id: '16', name: 'Samruddhi Deshmukh', designation: 'Hospitality Team Head', phone: '9096860827', email: 'deshmukhsamruddhi938@gmail.com', linkedin: 'https://www.linkedin.com/in/samruddhi-deshmukh-1b1a18319', category: 'coordinators', codename: 'SWITCH' },
   { id: '17', name: 'Shantanu Dubbewar', designation: 'Logistics Head', phone: '9503232911', email: 'shantanudubbewar@gmail.com', linkedin: 'https://www.linkedin.com/in/shantanu-dubbewar-74851b341', category: 'heads', codename: 'MOUSE' },
   { id: '18', name: 'Hariom Shukla', designation: 'Documentation Head', phone: '8810868287', email: 'shuklahariom081@gmail.com', linkedin: 'https://www.linkedin.com/in/hariom-shukla-a09b31335', category: 'coordinators', codename: 'LOCK' },
+=======
+  { id: '15', name: 'Samruddhi Deshmukh', designation: 'Hospitality Team Head', phone: '9096860827', email: 'deshmukhsamruddhi938@gmail.com', linkedin: 'https://www.linkedin.com/in/samruddhi-deshmukh-1b1a18319', category: 'coordinators', codename: 'APOC' },
+  { id: '16', name: 'Shantanu Dubbewar', designation: 'Logistics Head', phone: '9503232911', email: 'shantanudubbewar@gmail.com', linkedin: 'https://www.linkedin.com/in/shantanu-dubbewar-74851b341', category: 'heads', codename: 'MOUSE' },
+  { id: '17', name: 'Hariom Shukla', designation: 'Documentation Head', phone: '8810868287', email: 'shuklahariom081@gmail.com', linkedin: 'https://www.linkedin.com/in/hariom-shukla-a09b31335', category: 'coordinators', codename: 'LOCK' },
+>>>>>>> bb14c27d7fe534ceb95883770dfd5b69c2f63856
 ];
 
 // Department icon display
