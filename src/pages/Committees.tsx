@@ -11,18 +11,24 @@ interface TeamMember {
   phone: string;
   email: string;
   linkedin: string;
-  category: 'leadership' | 'heads' | 'coordinators';
+  category: 'leadership' | 'heads' | 'coordinators' | 'board';
   codename: string;
 }
 
 const teamMembers: TeamMember[] = [
   { id: '1', name: 'Sairaj Kulat', designation: 'President', phone: '8459958405', email: 'kulatsairaj469@gmail.com', linkedin: 'https://linkedin.com/in/sairaj-kulat', category: 'leadership', codename: 'NEO' },
-  { id: '2', name: 'Suyog Mapari', designation: 'President', phone: '8767569791', email: 'maparisuyog@gmail.com', linkedin: 'https://www.linkedin.com/in/suyog-mapari-a9572031b', category: 'leadership', codename: 'MORPHEUS' },
+  { id: '2', name: 'Suyog Mapari', designation: 'President', phone: '8767569791', email: 'maparisuyog@gmail.com', linkedin: 'https://www.linkedin.com/in/suyog-mapari-a9572031b', category: 'leadership', codename: 'TANK' },
   { id: '3', name: 'Khushi Ghule', designation: 'Vice President', phone: '7020294516', email: 'khushighule37@gmail.com', linkedin: 'https://linkedin.com/in/khushi-ghule', category: 'leadership', codename: 'TRINITY' },
   { id: '4', name: 'Bhumika Gade', designation: 'Convener', phone: '8390492006', email: 'gadebhumika460@gmail.com', linkedin: 'https://www.linkedin.com/in/bhumika-gade-79068b32a', category: 'leadership', codename: 'NIOBE' }, 
   { id: '5', name: 'Pranav Wadatkar', designation: 'Convener', phone: '8421056447', email: 'pranavwadatkar785@gmail.com', linkedin: 'https://linkedin.com/in/pranav-wadatkar', category: 'leadership', codename: 'ORACLE' },
+  { id: '19', name: 'Harsh Pandhe', designation: 'Event Lead & Organizer', phone: '7208783332', email: 'harshpandhehome@gmail.com', linkedin: 'https://www.linkedin.com/in/harsh-pandhe-853a9121a/', category: 'leadership', codename: 'ARCHITECT' },
+  { id: '20', name: 'Dr. Rajesh Kumar', designation: 'Board Member', phone: '9876543210', email: 'rajesh.kumar@university.edu', linkedin: 'https://linkedin.com/in/rajesh-kumar', category: 'board', codename: 'SAGE' },
+  { id: '21', name: 'Prof. Priya Sharma', designation: 'Board Member', phone: '9876543211', email: 'priya.sharma@university.edu', linkedin: 'https://linkedin.com/in/priya-sharma', category: 'board', codename: 'VISION' },
+  { id: '22', name: 'Mr. Amit Patel', designation: 'Board Member', phone: '9876543212', email: 'amit.patel@industry.com', linkedin: 'https://linkedin.com/in/amit-patel', category: 'board', codename: 'PIONEER' },
+  { id: '23', name: 'Dr. Sunita Rao', designation: 'Board Member', phone: '9876543213', email: 'sunita.rao@university.edu', linkedin: 'https://linkedin.com/in/sunita-rao', category: 'board', codename: 'INNOVATOR' },
+  { id: '24', name: 'Mr. Vikram Singh', designation: 'Board Member', phone: '9876543214', email: 'vikram.singh@techcorp.com', linkedin: 'https://linkedin.com/in/vikram-singh', category: 'board', codename: 'STRATEGIST' },
   { id: '6', name: 'Tushar Bhandare', designation: 'Web Development Head', phone: '9373513273', email: 'hackingbro780@gmail.com', linkedin: 'https://www.linkedin.com/in/tushar-bhandare-000334283', category: 'heads', codename: 'CIPHER' },
-  { id: '7', name: 'Aryan Raj', designation: 'Technical Head', phone: '6203728310', email: 'rajaryan6203@gmail.com', linkedin: 'https://www.linkedin.com/in/aryan-raj-504385370', category: 'heads', codename: 'TANK' },
+  { id: '7', name: 'Aryan Raj', designation: 'Technical Head', phone: '6203728310', email: 'rajaryan6203@gmail.com', linkedin: 'https://www.linkedin.com/in/aryan-raj-504385370', category: 'heads', codename: 'MORPHEUS' },
   { id: '8', name: 'Aniket Raj', designation: 'R&D Head', phone: '9693698429', email: 'aniketraj5404@gmail.com', linkedin: 'https://www.linkedin.com/in/aniket-raj-a0a065364', category: 'heads', codename: 'DOZER' },
   { id: '9', name: 'Om Dongre', designation: 'Research & Development Head', phone: '9579519820', email: 'dongreom996@gmail.com', linkedin: 'https://www.linkedin.com/in/om-dongre-4366b1341', category: 'heads', codename: 'LINK' },
   { id: '10', name: 'Anant Hejib', designation: 'PR & Marketing Head', phone: '8007579894', email: 'ananthejib28@gmail.com', linkedin: 'https://www.linkedin.com/in/anant-hejib-b277a82a2', category: 'heads', codename: 'GHOST' },
@@ -30,8 +36,7 @@ const teamMembers: TeamMember[] = [
   { id: '12', name: 'Aditya Jangam', designation: 'Design & Creativity Head', phone: '7410544823', email: 'adityajangam221206@gmail.com', linkedin: 'https://www.linkedin.com/in/aditya-jangam-1164a932a', category: 'heads', codename: 'KEYMAKER' },
   { id: '13', name: 'Srushti Dhabale', designation: 'Event Management', phone: '7058361775', email: 'dhabalesrushti4@gmail.com', linkedin: 'https://linkedin.com/in/srushti-dhabale', category: 'coordinators', codename: 'ZEE' },
   { id: '14', name: 'Sourabh Kadam', designation: 'Event Management Head', phone: '7249404530', email: 'kadamsourabh79@gmail.com', linkedin: 'https://www.linkedin.com/in/kadam-sourabh-554a0a3a2', category: 'coordinators', codename: 'SPARKS' },
-  { id: '15', name: 'Gauri Deshpande', designation: 'Hospitality & Web Dev Co-Head', phone: '7350007883', email: 'deshpandegauri598@gmail.com', linkedin: 'https://www.linkedin.com/in/gauri-deshpande-72aa98339', category: 'coordinators', codename: 'SWITCH' },
-  { id: '16', name: 'Samruddhi Deshmukh', designation: 'Hospitality Team Head', phone: '9096860827', email: 'deshmukhsamruddhi938@gmail.com', linkedin: 'https://www.linkedin.com/in/samruddhi-deshmukh-1b1a18319', category: 'coordinators', codename: 'APOC' },
+  { id: '16', name: 'Samruddhi Deshmukh', designation: 'Hospitality Team Head', phone: '9096860827', email: 'deshmukhsamruddhi938@gmail.com', linkedin: 'https://www.linkedin.com/in/samruddhi-deshmukh-1b1a18319', category: 'coordinators', codename: 'SWITCH' },
   { id: '17', name: 'Shantanu Dubbewar', designation: 'Logistics Head', phone: '9503232911', email: 'shantanudubbewar@gmail.com', linkedin: 'https://www.linkedin.com/in/shantanu-dubbewar-74851b341', category: 'heads', codename: 'MOUSE' },
   { id: '18', name: 'Hariom Shukla', designation: 'Documentation Head', phone: '8810868287', email: 'shuklahariom081@gmail.com', linkedin: 'https://www.linkedin.com/in/hariom-shukla-a09b31335', category: 'coordinators', codename: 'LOCK' },
 ];
@@ -132,6 +137,414 @@ const getDesignationIcon = (designation: string) => {
   return Users;
 };
 
+// Founder Card - Special card for the website creator and lead organizer
+const FounderCard = ({ member }: { member: TeamMember }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  const color = { primary: '#ff6b35', secondary: '#f7931e', glow: 'rgba(255,107,53,0.6)' };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 80, scale: 0.8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 1, type: 'spring', stiffness: 100 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      className="group relative mx-auto w-full sm:max-w-lg px-4"
+      style={{ perspective: '1200px' }}
+    >
+      <motion.div
+        className="relative rounded-3xl overflow-hidden"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: isHovered 
+            ? `rotateY(${(mousePos.x - 0.5) * 20}deg) rotateX(${(0.5 - mousePos.y) * 20}deg) scale(1.02)` 
+            : 'none',
+        }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ duration: 0.4 }}
+      >
+        {/* Enhanced holographic shimmer effect */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{
+            background: `
+              radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, 
+                ${color.primary}30 0%, 
+                ${color.primary}15 30%, 
+                transparent 70%
+              ),
+              linear-gradient(
+                ${45 + mousePos.x * 90}deg,
+                transparent 10%,
+                ${color.primary}25 35%,
+                ${color.primary}40 50%,
+                ${color.primary}25 65%,
+                transparent 90%
+              )
+            `,
+            opacity: isHovered ? 1 : 0.8,
+          }}
+          transition={{ duration: 0.3 }}
+        />
+
+        {/* Animated border glow */}
+        <motion.div
+          className="absolute inset-0 rounded-3xl"
+          style={{
+            background: `conic-gradient(from 0deg at 50% 50%, transparent, ${color.primary}40, transparent)`,
+            opacity: isHovered ? 0.6 : 0.3,
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+        />
+
+        {/* Card background */}
+        <div 
+          className="relative z-10 border-3 rounded-3xl overflow-hidden backdrop-blur-xl"
+          style={{
+            background: `linear-gradient(145deg, rgba(0,0,0,0.98) 0%, rgba(20,10,0,0.95) 50%, rgba(0,0,0,0.98) 100%)`,
+            borderColor: isHovered ? color.primary : `${color.primary}60`,
+            boxShadow: isHovered 
+              ? `0 0 80px ${color.glow}, 0 0 160px ${color.glow}40, inset 0 0 100px ${color.primary}10` 
+              : `0 0 40px ${color.glow}60, inset 0 0 60px ${color.primary}05`,
+          }}
+        >
+          {/* Top status bar - FOUNDER */}
+          <div 
+            className="flex items-center justify-between px-3 py-2 sm:px-8 sm:py-4 border-b-2"
+            style={{ borderColor: `${color.primary}50`, background: `${color.primary}15` }}
+          >
+            <div className="flex items-center gap-4">
+              <motion.div
+                className="w-4 h-4 rounded-full"
+                style={{ backgroundColor: color.primary }}
+                animate={{ 
+                  opacity: [1, 0.3, 1], 
+                  scale: [1, 1.2, 1],
+                  boxShadow: [`0 0 10px ${color.primary}`, `0 0 20px ${color.primary}`, `0 0 10px ${color.primary}`]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <span className="text-sm sm:text-lg font-mono font-black tracking-wider" style={{ color: color.primary }}>
+               LEAD ORGANIZER
+              </span>
+            </div>
+            <div 
+              className="px-3 py-1 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-mono font-bold tracking-wider border"
+              style={{ 
+                background: `${color.primary}20`, 
+                color: color.primary,
+                borderColor: `${color.primary}40`
+              }}
+            >
+              {member.codename}
+            </div>
+          </div>
+
+          {/* Enhanced department icon section */}
+            <div className="relative p-3 sm:p-10">
+            <div 
+              className="relative w-28 h-28 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-4"
+              style={{ 
+                background: `radial-gradient(circle, ${color.primary}10 0%, transparent 70%)`,
+                borderColor: `${color.primary}30`
+              }}
+            >
+              <DepartmentIcon 
+                designation={member.designation}
+                color={color.primary}
+                isHovered={isHovered}
+              />
+              
+              {/* Inner glow ring */}
+              <motion.div
+                className="absolute inset-4 rounded-full border-2"
+                style={{ borderColor: `${color.primary}40` }}
+                animate={{ scale: [1, 1.05, 1], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+            </div>
+          </div>
+
+          {/* Enhanced info section */}
+          <div className="px-2 sm:px-10 pb-8 text-center">
+            <motion.h3
+              className="font-black text-lg sm:text-3xl mb-3 tracking-wide break-words"
+              style={{ color: isHovered ? color.primary : 'white' }}
+            >
+              {member.name}
+            </motion.h3>
+            <p className="text-sm sm:text-base text-gray-300 font-mono mb-4 sm:mb-6 font-semibold">{member.designation}</p>
+
+            {/* Enhanced stats row */}
+            <div 
+              className="flex items-center justify-center gap-4 sm:gap-8 py-4 rounded-2xl mb-6 border-2"
+              style={{ 
+                background: `${color.primary}08`, 
+                borderColor: `${color.primary}20`
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <Crown size={18} style={{ color: color.primary }} />
+                <span className="hidden sm:inline text-sm font-mono text-gray-300 font-bold">LEAD</span>
+              </div>
+              <div className="w-px h-8 bg-gray-600" />
+              <div className="flex items-center gap-3">
+                <Code size={18} style={{ color: color.primary }} />
+                <span className="hidden sm:inline text-sm font-mono text-gray-300 font-bold">DEVELOPER</span>
+              </div>
+              <div className="w-px h-8 bg-gray-600" />
+              <div className="flex items-center gap-3">
+                <Zap size={18} style={{ color: color.primary }} />
+                <span className="hidden sm:inline text-sm font-mono text-gray-300 font-bold">VISIONARY</span>
+              </div>
+            </div>
+
+            {/* Enhanced contact buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 w-full">
+              {[
+                { href: `mailto:${member.email}`, icon: Mail, label: 'Email' },
+                { href: `tel:${member.phone}`, icon: Phone, label: 'Call' },
+                { href: member.linkedin, icon: Linkedin, label: 'LinkedIn', external: true },
+              ].map(({ href, icon: ContactIcon, label, external }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  className="flex-1 flex items-center justify-center gap-3 py-2 sm:py-4 rounded-2xl transition-all border-2"
+                  style={{ 
+                    background: `${color.primary}10`,
+                    borderColor: `${color.primary}30`,
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    background: `${color.primary}25`,
+                    borderColor: `${color.primary}50`,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ContactIcon size={16} style={{ color: color.primary }} />
+                  <span className="text-sm font-mono font-bold" style={{ color: color.primary }}>
+                    {label.toUpperCase()}
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Enhanced bottom decoration */}
+          <div 
+            className="h-2 sm:h-3"
+            style={{ 
+              background: `linear-gradient(90deg, transparent, ${color.primary}80, ${color.primary}, ${color.primary}80, transparent)`,
+              boxShadow: `0 0 16px ${color.primary}30`,
+            }}
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// Big Coordinator Card
+const CoordinatorCard = ({ member }: { member: TeamMember }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  const color = { primary: '#fbbf24', secondary: '#f59e0b', glow: 'rgba(251,191,36,0.5)' };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 60, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.8, type: 'spring' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      className="group relative mx-auto w-full sm:max-w-md"
+      style={{ perspective: '1000px' }}
+    >
+      <motion.div
+        className="relative rounded-3xl overflow-hidden"
+        style={{
+          transformStyle: 'preserve-3d',
+          transform: isHovered 
+            ? `rotateY(${(mousePos.x - 0.5) * 15}deg) rotateX(${(0.5 - mousePos.y) * 15}deg)` 
+            : 'none',
+        }}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Holographic shimmer effect */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{
+            background: `
+              linear-gradient(
+                ${45 + mousePos.x * 90}deg,
+                transparent 20%,
+                ${color.primary}20 40%,
+                ${color.primary}35 50%,
+                ${color.primary}20 60%,
+                transparent 80%
+              )
+            `,
+            opacity: isHovered ? 1 : 0.7,
+          }}
+          transition={{ duration: 0.3 }}
+        />
+
+        {/* Card background */}
+        <div 
+          className="relative z-10 border-2 rounded-3xl overflow-hidden backdrop-blur-xl"
+          style={{
+            background: `linear-gradient(145deg, rgba(0,0,0,0.95) 0%, rgba(10,10,20,0.95) 100%)`,
+            borderColor: isHovered ? color.primary : `${color.primary}50`,
+            boxShadow: isHovered ? `0 0 60px ${color.glow}, inset 0 0 80px ${color.primary}15` : `0 0 30px ${color.glow}`,
+          }}
+        >
+          {/* Top status bar */}
+          <div 
+            className="flex items-center justify-between px-6 py-3 border-b"
+            style={{ borderColor: `${color.primary}40`, background: `${color.primary}10` }}
+          >
+            <div className="flex items-center gap-3">
+              <motion.div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: color.primary }}
+                animate={{ opacity: [1, 0.4, 1], scale: [1, 0.9, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+              <span className="text-sm font-mono font-bold" style={{ color: color.primary }}>
+                COORDINATOR
+              </span>
+            </div>
+            <div 
+              className="px-3 py-1 rounded text-xs font-mono font-bold tracking-wider"
+              style={{ background: `${color.primary}25`, color: color.primary }}
+            >
+              {member.codename}
+            </div>
+          </div>
+
+          {/* Department icon section */}
+          <div className="relative p-6 sm:p-8">
+            <div 
+              className="relative w-28 h-28 sm:w-40 sm:h-40 mx-auto rounded-3xl overflow-hidden"
+              style={{ background: `${color.primary}08` }}
+            >
+              <DepartmentIcon 
+                designation={member.designation}
+                color={color.primary}
+                isHovered={isHovered}
+              />
+            </div>
+          </div>
+
+          {/* Info section */}
+          <div className="px-6 sm:px-8 pb-6 text-center">
+            <motion.h3
+              className="font-bold text-xl sm:text-2xl mb-2 tracking-wide"
+              style={{ color: isHovered ? color.primary : 'white' }}
+            >
+              {member.name}
+            </motion.h3>
+            <p className="text-sm text-gray-400 font-mono mb-6">{member.designation}</p>
+
+            {/* Stats row */}
+            <div 
+              className="flex items-center justify-center gap-6 py-4 rounded-2xl mb-6"
+              style={{ background: `${color.primary}10`, border: `1px solid ${color.primary}25` }}
+            >
+              <div className="flex items-center gap-2">
+                <Crown size={16} style={{ color: color.primary }} />
+                <span className="text-xs font-mono text-gray-400">LEADER</span>
+              </div>
+              <div className="w-px h-6 bg-gray-700" />
+              <div className="flex items-center gap-2">
+                <Zap size={16} style={{ color: color.primary }} />
+                <span className="text-xs font-mono text-gray-400">ACTIVE</span>
+              </div>
+              <div className="w-px h-6 bg-gray-700" />
+              <div className="flex items-center gap-2">
+                <Shield size={16} style={{ color: color.primary }} />
+                <span className="text-xs font-mono text-gray-400">SECURE</span>
+              </div>
+            </div>
+
+            {/* Contact buttons */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              {[
+                { href: `mailto:${member.email}`, icon: Mail, label: 'Email' },
+                { href: `tel:${member.phone}`, icon: Phone, label: 'Call' },
+                { href: member.linkedin, icon: Linkedin, label: 'LinkedIn', external: true },
+              ].map(({ href, icon: ContactIcon, label, external }) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all"
+                  style={{ 
+                    background: `${color.primary}12`,
+                    border: `1px solid ${color.primary}35`,
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    background: `${color.primary}30`,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ContactIcon size={16} style={{ color: color.primary }} />
+                  <span className="text-xs font-mono hidden sm:inline" style={{ color: color.primary }}>
+                    {label.toUpperCase()}
+                  </span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom decoration */}
+          <div 
+            className="h-2"
+            style={{ 
+              background: `linear-gradient(90deg, transparent, ${color.primary}, transparent)`,
+            }}
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 // Premium holographic card
 const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -142,6 +555,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
     leadership: { primary: '#fbbf24', secondary: '#f59e0b', glow: 'rgba(251,191,36,0.5)' },
     heads: { primary: '#22c55e', secondary: '#16a34a', glow: 'rgba(34,197,94,0.5)' },
     coordinators: { primary: '#06b6d4', secondary: '#0891b2', glow: 'rgba(6,182,212,0.5)' },
+    board: { primary: '#8b5cf6', secondary: '#7c3aed', glow: 'rgba(139,92,246,0.5)' },
   };
   
   const color = colors[member.category];
@@ -165,7 +579,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
-      className="group relative"
+      className="group relative w-full"
       style={{ perspective: '1000px' }}
     >
       <motion.div
@@ -234,7 +648,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
           {/* Department icon section */}
           <div className="relative p-5">
             <div 
-              className="relative w-28 h-28 mx-auto rounded-2xl overflow-hidden"
+              className="relative w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden"
               style={{ background: `${color.primary}05` }}
             >
               <DepartmentIcon 
@@ -246,9 +660,9 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
           </div>
 
           {/* Info section */}
-          <div className="px-5 pb-4 text-center">
+          <div className="px-4 sm:px-5 pb-4 text-center">
             <motion.h3
-              className="font-bold text-lg mb-1 tracking-wide"
+              className="font-bold text-sm sm:text-lg mb-1 tracking-wide"
               style={{ color: isHovered ? color.primary : 'white' }}
             >
               {member.name}
@@ -277,7 +691,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
             </div>
 
             {/* Contact buttons */}
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               {[
                 { href: `mailto:${member.email}`, icon: Mail, label: 'Email' },
                 { href: `tel:${member.phone}`, icon: Phone, label: 'Call' },
@@ -447,6 +861,10 @@ const Committees = () => {
   const leadership = teamMembers.filter(m => m.category === 'leadership');
   const heads = teamMembers.filter(m => m.category === 'heads');
   const coordinators = teamMembers.filter(m => m.category === 'coordinators');
+  const boardMembers = teamMembers.filter(m => m.category === 'board');
+  
+  // Coordinator - Harsh Pandhe is the main coordinator
+  const mainCoordinator = teamMembers.find(m => m.name === 'Harsh Pandhe')!;
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
@@ -638,15 +1056,115 @@ const Committees = () => {
         </div>
       </section>
 
-      {/* Team sections */}
+      {/* Lead Event Coordinator/Organizer Section */}
+      <section className="py-16 sm:py-24 px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.div
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full mb-6"
+              style={{ background: '#ff6b3515', border: '1px solid #ff6b3540' }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Crown size={18} style={{ color: '#ff6b35' }} />
+              <span className="font-mono text-sm tracking-widest" style={{ color: '#ff6b35' }}>
+                LEAD ORGANIZER
+              </span>
+            </motion.div>
+            
+            <h2 
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4"
+              style={{ 
+                color: '#ff6b35',
+                textShadow: '0 0 40px #ff6b3560',
+              }}
+            >
+              EVENT COORDINATOR
+            </h2>
+            
+            <div 
+              className="w-24 h-1 mx-auto rounded-full"
+              style={{ background: 'linear-gradient(90deg, transparent, #ff6b35, transparent)' }}
+            />
+          </motion.div>
+
+          {/* Founder Card - Special for Harsh Pandhe */}
+          <div className="mb-12">
+            <FounderCard member={mainCoordinator} />
+          </div>
+        </div>
+      </section>
+
+      {/* Advisory Board Section */}
+      <section className="py-16 sm:py-24 px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <motion.div
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full mb-6"
+              style={{ background: '#8b5cf615', border: '1px solid #8b5cf640' }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Users size={18} style={{ color: '#8b5cf6' }} />
+              <span className="font-mono text-sm tracking-widest" style={{ color: '#8b5cf6' }}>
+                ADVISORY BOARD
+              </span>
+            </motion.div>
+            
+            <h2 
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4"
+              style={{ 
+                color: '#8b5cf6',
+                textShadow: '0 0 40px #8b5cf660',
+              }}
+            >
+              ADVISORY BOARD MEMBERS
+            </h2>
+            
+            <div 
+              className="w-24 h-1 mx-auto rounded-full"
+              style={{ background: 'linear-gradient(90deg, transparent, #8b5cf6, transparent)' }}
+            />
+          </motion.div>
+
+          {/* Board Members Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {boardMembers.map((member, index) => (
+              <HoloCard key={member.id} member={member} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
       <TeamSection
         title="LEADERSHIP"
         subtitle="The architects"
-        members={leadership}
+        members={leadership.filter(m => m.id !== mainCoordinator.id)}
         color="#fbbf24"
         icon={Crown}
       />
 
+      {/* Coordinators Section */}
+      <TeamSection
+        title="COORDINATORS"
+        subtitle="The backbone"
+        members={coordinators}
+        color="#06b6d4"
+        icon={Users}
+      />
+
+      {/* Department Heads Section */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-b from-green-900/5 via-green-900/10 to-green-900/5" />
         <TeamSection
@@ -657,14 +1175,6 @@ const Committees = () => {
           icon={Code}
         />
       </div>
-
-      <TeamSection
-        title="COORDINATORS"
-        subtitle="The backbone"
-        members={coordinators}
-        color="#06b6d4"
-        icon={Users}
-      />
 
       {/* CTA */}
       <section className="py-20 px-4 relative z-10">

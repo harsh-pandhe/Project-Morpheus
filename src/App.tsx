@@ -11,6 +11,7 @@ import Guidelines from "./pages/Guidelines";
 import Committees from "./pages/Committees";
 import Register from "./pages/Register";
 import FAQs from "./pages/FAQs";
+import Creator from "./pages/Creator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/committees" element={<Committees />} />
           <Route path="/register" element={<Register />} />
           <Route path="/faqs" element={<FAQs />} />
+          {/* <Route path="/creator" element={<Creator />} /> */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
