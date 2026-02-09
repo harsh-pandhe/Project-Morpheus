@@ -20,7 +20,7 @@ const teamMembers: TeamMember[] = [
   { id: '1', name: 'Sairaj Kulat', designation: 'President', phone: '8459958405', email: 'kulatsairaj469@gmail.com', linkedin: 'https://linkedin.com/in/sairaj-kulat', category: 'leadership', codename: 'NEO' },
   { id: '2', name: 'Suyog Mapari', designation: 'President', phone: '8767569791', email: 'maparisuyog@gmail.com', linkedin: 'https://www.linkedin.com/in/suyog-mapari-a9572031b', category: 'leadership', codename: 'TANK' },
   { id: '3', name: 'Khushi Ghule', designation: 'Vice President', phone: '7020294516', email: 'khushighule37@gmail.com', linkedin: 'https://linkedin.com/in/khushi-ghule', category: 'leadership', codename: 'EMBER' },
-  { id: '4', name: 'Bhumika Gade', designation: 'Convener', phone: '8390492006', email: 'gadebhumika460@gmail.com', linkedin: 'https://www.linkedin.com/in/bhumika-gade-79068b32a', category: 'leadership', codename: 'NIOBE' }, 
+  { id: '4', name: 'Bhumika Gade', designation: 'Convener', phone: '8390492006', email: 'gadebhumika460@gmail.com', linkedin: 'https://www.linkedin.com/in/bhumika-gade-79068b32a', category: 'leadership', codename: 'NIOBE' },
   { id: '5', name: 'Pranav Wadatkar', designation: 'Convener', phone: '8421056447', email: 'pranavwadatkar785@gmail.com', linkedin: 'https://linkedin.com/in/pranav-wadatkar', category: 'leadership', codename: 'ORACLE' },
   { id: '19', name: 'Harsh Pandhe', designation: 'Event Lead & Organizer', phone: '7208783332', email: 'harshpandhehome@gmail.com', linkedin: 'https://www.linkedin.com/in/harsh-pandhe-853a9121a/', category: 'leadership', codename: 'ARCHITECT' },
   { id: '30', name: 'Manas Pandurang Kale', designation: 'Board Member', phone: '9145005557', email: 'manaskale143@gmail.com', linkedin: 'https://www.linkedin.com/in/manas-kale-ba6b48279', category: 'board', codename: 'ORBIT' },
@@ -39,37 +39,37 @@ const teamMembers: TeamMember[] = [
   { id: '15', name: 'Samruddhi Deshmukh', designation: 'Hospitality Team Head', phone: '9096860827', email: 'deshmukhsamruddhi938@gmail.com', linkedin: 'https://www.linkedin.com/in/samruddhi-deshmukh-1b1a18319', category: 'coordinators', codename: 'SWITCH' },
   { id: '16', name: 'Shantanu Dubbewar', designation: 'Logistics Head', phone: '9503232911', email: 'shantanudubbewar@gmail.com', linkedin: 'https://www.linkedin.com/in/shantanu-dubbewar-74851b341', category: 'heads', codename: 'MOUSE' },
   { id: '17', name: 'Hariom Shukla', designation: 'Documentation Head', phone: '8810868287', email: 'shuklahariom081@gmail.com', linkedin: 'https://www.linkedin.com/in/hariom-shukla-a09b31335', category: 'coordinators', codename: 'LOCK' },
-  
+
 ];
 
 // Department icon display
 const DepartmentIcon = ({ designation, color, isHovered }: { designation: string; color: string; isHovered: boolean }) => {
   const Icon = getDesignationIcon(designation);
-  
+
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       {/* Animated background circles */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 flex items-center justify-center"
         animate={isHovered ? { rotate: 360 } : { rotate: 0 }}
         transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
       >
-        <div 
+        <div
           className="absolute w-24 h-24 rounded-full border opacity-20"
           style={{ borderColor: color }}
         />
-        <div 
+        <div
           className="absolute w-20 h-20 rounded-full border opacity-30"
           style={{ borderColor: color }}
         />
-        <div 
+        <div
           className="absolute w-16 h-16 rounded-full border opacity-40"
           style={{ borderColor: color }}
         />
       </motion.div>
 
       {/* Hex pattern background */}
-      <div 
+      <div
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='${encodeURIComponent(color)}' stroke-width='1'/%3E%3C/svg%3E")`,
@@ -80,9 +80,9 @@ const DepartmentIcon = ({ designation, color, isHovered }: { designation: string
       {/* Glow effect */}
       <motion.div
         className="absolute rounded-full blur-xl"
-        style={{ 
-          width: '60%', 
-          height: '60%', 
+        style={{
+          width: '60%',
+          height: '60%',
           background: color,
           opacity: isHovered ? 0.3 : 0.1,
         }}
@@ -93,7 +93,7 @@ const DepartmentIcon = ({ designation, color, isHovered }: { designation: string
       {/* Main icon */}
       <motion.div
         className="relative z-10 p-4 rounded-2xl"
-        style={{ 
+        style={{
           background: `${color}15`,
           border: `2px solid ${color}40`,
           boxShadow: isHovered ? `0 0 30px ${color}40` : 'none',
@@ -143,7 +143,7 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   const color = { primary: '#ff6b35', secondary: '#f7931e', glow: 'rgba(255,107,53,0.6)' };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -172,8 +172,8 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
         className="relative rounded-3xl overflow-hidden"
         style={{
           transformStyle: 'preserve-3d',
-          transform: isHovered 
-            ? `rotateY(${(mousePos.x - 0.5) * 20}deg) rotateX(${(0.5 - mousePos.y) * 20}deg) scale(1.02)` 
+          transform: isHovered
+            ? `rotateY(${(mousePos.x - 0.5) * 20}deg) rotateX(${(0.5 - mousePos.y) * 20}deg) scale(1.02)`
             : 'none',
         }}
         whileHover={{ scale: 1.03 }}
@@ -215,18 +215,18 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
         />
 
         {/* Card background */}
-        <div 
+        <div
           className="relative z-10 border-3 rounded-3xl overflow-hidden backdrop-blur-xl"
           style={{
             background: `linear-gradient(145deg, rgba(0,0,0,0.98) 0%, rgba(20,10,0,0.95) 50%, rgba(0,0,0,0.98) 100%)`,
             borderColor: isHovered ? color.primary : `${color.primary}60`,
-            boxShadow: isHovered 
-              ? `0 0 80px ${color.glow}, 0 0 160px ${color.glow}40, inset 0 0 100px ${color.primary}10` 
+            boxShadow: isHovered
+              ? `0 0 80px ${color.glow}, 0 0 160px ${color.glow}40, inset 0 0 100px ${color.primary}10`
               : `0 0 40px ${color.glow}60, inset 0 0 60px ${color.primary}05`,
           }}
         >
           {/* Top status bar - FOUNDER */}
-          <div 
+          <div
             className="flex items-center justify-between px-3 py-2 sm:px-8 sm:py-4 border-b-2"
             style={{ borderColor: `${color.primary}50`, background: `${color.primary}15` }}
           >
@@ -234,21 +234,21 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
               <motion.div
                 className="w-4 h-4 rounded-full"
                 style={{ backgroundColor: color.primary }}
-                animate={{ 
-                  opacity: [1, 0.3, 1], 
+                animate={{
+                  opacity: [1, 0.3, 1],
                   scale: [1, 1.2, 1],
                   boxShadow: [`0 0 10px ${color.primary}`, `0 0 20px ${color.primary}`, `0 0 10px ${color.primary}`]
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="text-sm sm:text-lg font-mono font-black tracking-wider" style={{ color: color.primary }}>
-               LEAD ORGANIZER
+                LEAD ORGANIZER
               </span>
             </div>
-            <div 
+            <div
               className="px-3 py-1 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm font-mono font-bold tracking-wider border"
-              style={{ 
-                background: `${color.primary}20`, 
+              style={{
+                background: `${color.primary}20`,
                 color: color.primary,
                 borderColor: `${color.primary}40`
               }}
@@ -258,20 +258,20 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
           </div>
 
           {/* Enhanced department icon section */}
-            <div className="relative p-3 sm:p-10">
-            <div 
+          <div className="relative p-3 sm:p-10">
+            <div
               className="relative w-28 h-28 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-4"
-              style={{ 
+              style={{
                 background: `radial-gradient(circle, ${color.primary}10 0%, transparent 70%)`,
                 borderColor: `${color.primary}30`
               }}
             >
-              <DepartmentIcon 
+              <DepartmentIcon
                 designation={member.designation}
                 color={color.primary}
                 isHovered={isHovered}
               />
-              
+
               {/* Inner glow ring */}
               <motion.div
                 className="absolute inset-4 rounded-full border-2"
@@ -293,10 +293,10 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
             <p className="text-sm sm:text-base text-gray-300 font-mono mb-4 sm:mb-6 font-semibold">{member.designation}</p>
 
             {/* Enhanced stats row */}
-            <div 
+            <div
               className="flex items-center justify-center gap-4 sm:gap-8 py-4 rounded-2xl mb-6 border-2"
-              style={{ 
-                background: `${color.primary}08`, 
+              style={{
+                background: `${color.primary}08`,
                 borderColor: `${color.primary}20`
               }}
             >
@@ -329,11 +329,11 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   className="flex-1 flex items-center justify-center gap-3 py-2 sm:py-4 rounded-2xl transition-all border-2"
-                  style={{ 
+                  style={{
                     background: `${color.primary}10`,
                     borderColor: `${color.primary}30`,
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     background: `${color.primary}25`,
                     borderColor: `${color.primary}50`,
@@ -350,9 +350,9 @@ const FounderCard = ({ member }: { member: TeamMember }) => {
           </div>
 
           {/* Enhanced bottom decoration */}
-          <div 
+          <div
             className="h-2 sm:h-3"
-            style={{ 
+            style={{
               background: `linear-gradient(90deg, transparent, ${color.primary}80, ${color.primary}, ${color.primary}80, transparent)`,
               boxShadow: `0 0 16px ${color.primary}30`,
             }}
@@ -368,7 +368,7 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   const color = { primary: '#fbbf24', secondary: '#f59e0b', glow: 'rgba(251,191,36,0.5)' };
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -397,8 +397,8 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
         className="relative rounded-3xl overflow-hidden"
         style={{
           transformStyle: 'preserve-3d',
-          transform: isHovered 
-            ? `rotateY(${(mousePos.x - 0.5) * 15}deg) rotateX(${(0.5 - mousePos.y) * 15}deg)` 
+          transform: isHovered
+            ? `rotateY(${(mousePos.x - 0.5) * 15}deg) rotateX(${(0.5 - mousePos.y) * 15}deg)`
             : 'none',
         }}
         whileHover={{ scale: 1.05 }}
@@ -424,7 +424,7 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
         />
 
         {/* Card background */}
-        <div 
+        <div
           className="relative z-10 border-2 rounded-3xl overflow-hidden backdrop-blur-xl"
           style={{
             background: `linear-gradient(145deg, rgba(0,0,0,0.95) 0%, rgba(10,10,20,0.95) 100%)`,
@@ -433,7 +433,7 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
           }}
         >
           {/* Top status bar */}
-          <div 
+          <div
             className="flex items-center justify-between px-6 py-3 border-b"
             style={{ borderColor: `${color.primary}40`, background: `${color.primary}10` }}
           >
@@ -448,7 +448,7 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
                 COORDINATOR
               </span>
             </div>
-            <div 
+            <div
               className="px-3 py-1 rounded text-xs font-mono font-bold tracking-wider"
               style={{ background: `${color.primary}25`, color: color.primary }}
             >
@@ -458,11 +458,11 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
 
           {/* Department icon section */}
           <div className="relative p-6 sm:p-8">
-            <div 
+            <div
               className="relative w-28 h-28 sm:w-40 sm:h-40 mx-auto rounded-3xl overflow-hidden"
               style={{ background: `${color.primary}08` }}
             >
-              <DepartmentIcon 
+              <DepartmentIcon
                 designation={member.designation}
                 color={color.primary}
                 isHovered={isHovered}
@@ -481,7 +481,7 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
             <p className="text-sm text-gray-400 font-mono mb-6">{member.designation}</p>
 
             {/* Stats row */}
-            <div 
+            <div
               className="flex items-center justify-center gap-6 py-4 rounded-2xl mb-6"
               style={{ background: `${color.primary}10`, border: `1px solid ${color.primary}25` }}
             >
@@ -514,11 +514,11 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all"
-                  style={{ 
+                  style={{
                     background: `${color.primary}12`,
                     border: `1px solid ${color.primary}35`,
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     background: `${color.primary}30`,
                   }}
@@ -534,9 +534,9 @@ const CoordinatorCard = ({ member }: { member: TeamMember }) => {
           </div>
 
           {/* Bottom decoration */}
-          <div 
+          <div
             className="h-2"
-            style={{ 
+            style={{
               background: `linear-gradient(90deg, transparent, ${color.primary}, transparent)`,
             }}
           />
@@ -551,14 +551,14 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const cardRef = useRef<HTMLDivElement>(null);
-  
+
   const colors = {
     leadership: { primary: '#fbbf24', secondary: '#f59e0b', glow: 'rgba(251,191,36,0.5)' },
     heads: { primary: '#22c55e', secondary: '#16a34a', glow: 'rgba(34,197,94,0.5)' },
     coordinators: { primary: '#06b6d4', secondary: '#0891b2', glow: 'rgba(6,182,212,0.5)' },
     board: { primary: '#8b5cf6', secondary: '#7c3aed', glow: 'rgba(139,92,246,0.5)' },
   };
-  
+
   const color = colors[member.category];
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -587,8 +587,8 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
         className="relative rounded-2xl overflow-hidden"
         style={{
           transformStyle: 'preserve-3d',
-          transform: isHovered 
-            ? `rotateY(${(mousePos.x - 0.5) * 10}deg) rotateX(${(0.5 - mousePos.y) * 10}deg)` 
+          transform: isHovered
+            ? `rotateY(${(mousePos.x - 0.5) * 10}deg) rotateX(${(0.5 - mousePos.y) * 10}deg)`
             : 'none',
         }}
         whileHover={{ scale: 1.02 }}
@@ -614,7 +614,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
         />
 
         {/* Card background */}
-        <div 
+        <div
           className="relative z-10 border-2 rounded-2xl overflow-hidden backdrop-blur-xl"
           style={{
             background: `linear-gradient(145deg, rgba(0,0,0,0.95) 0%, rgba(10,10,20,0.95) 100%)`,
@@ -623,7 +623,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
           }}
         >
           {/* Top status bar */}
-          <div 
+          <div
             className="flex items-center justify-between px-4 py-2 border-b"
             style={{ borderColor: `${color.primary}30`, background: `${color.primary}08` }}
           >
@@ -638,7 +638,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
                 ACTIVE
               </span>
             </div>
-            <div 
+            <div
               className="px-2 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider"
               style={{ background: `${color.primary}20`, color: color.primary }}
             >
@@ -648,11 +648,11 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
 
           {/* Department icon section */}
           <div className="relative p-5">
-            <div 
+            <div
               className="relative w-20 h-20 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden"
               style={{ background: `${color.primary}05` }}
             >
-              <DepartmentIcon 
+              <DepartmentIcon
                 designation={member.designation}
                 color={color.primary}
                 isHovered={isHovered}
@@ -671,7 +671,7 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
             <p className="text-xs text-gray-400 font-mono mb-4">{member.designation}</p>
 
             {/* Stats row */}
-            <div 
+            <div
               className="flex items-center justify-center gap-4 py-3 rounded-xl mb-4"
               style={{ background: `${color.primary}08`, border: `1px solid ${color.primary}20` }}
             >
@@ -704,11 +704,11 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
                   target={external ? '_blank' : undefined}
                   rel={external ? 'noopener noreferrer' : undefined}
                   className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl transition-all"
-                  style={{ 
+                  style={{
                     background: `${color.primary}10`,
                     border: `1px solid ${color.primary}30`,
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     background: `${color.primary}25`,
                   }}
@@ -724,9 +724,9 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
           </div>
 
           {/* Bottom decoration */}
-          <div 
+          <div
             className="h-1"
-            style={{ 
+            style={{
               background: `linear-gradient(90deg, transparent, ${color.primary}, transparent)`,
             }}
           />
@@ -739,6 +739,27 @@ const HoloCard = ({ member, index }: { member: TeamMember; index: number }) => {
 // Background matrix effect
 const MatrixBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isLowPower, setIsLowPower] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+      const saveData = connection?.saveData ?? false;
+      const isMobile = window.innerWidth < 768;
+      setIsLowPower(media.matches || saveData || isMobile);
+    };
+
+    update();
+    media.addEventListener?.('change', update);
+    window.addEventListener('resize', update);
+
+    return () => {
+      media.removeEventListener?.('change', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -755,12 +776,20 @@ const MatrixBackground = () => {
     window.addEventListener('resize', resize);
 
     const chars = 'MORPHEUS01アイウエオカキクケコ';
-    const fontSize = 16;
+    const fontSize = isLowPower ? 18 : 16;
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = Array(columns).fill(1).map(() => Math.random() * -100);
+    let isVisible = document.visibilityState === 'visible';
+
+    const handleVisibility = () => {
+      isVisible = document.visibilityState === 'visible';
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+      if (!isVisible) return;
+      ctx.fillStyle = isLowPower ? 'rgba(0, 0, 0, 0.08)' : 'rgba(0, 0, 0, 0.04)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = `${fontSize}px monospace`;
@@ -782,12 +811,13 @@ const MatrixBackground = () => {
       }
     };
 
-    const interval = setInterval(draw, 60);
+    const interval = setInterval(draw, isLowPower ? 90 : 60);
     return () => {
       clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [isLowPower]);
 
   return (
     <canvas
@@ -798,16 +828,16 @@ const MatrixBackground = () => {
 };
 
 // Section component
-const TeamSection = ({ 
-  title, 
-  subtitle, 
-  members, 
-  color, 
-  icon: Icon 
-}: { 
-  title: string; 
-  subtitle: string; 
-  members: TeamMember[]; 
+const TeamSection = ({
+  title,
+  subtitle,
+  members,
+  color,
+  icon: Icon
+}: {
+  title: string;
+  subtitle: string;
+  members: TeamMember[];
   color: string;
   icon: React.ElementType;
 }) => (
@@ -830,18 +860,18 @@ const TeamSection = ({
             {subtitle.toUpperCase()}
           </span>
         </motion.div>
-        
-        <h2 
+
+        <h2
           className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4"
-          style={{ 
+          style={{
             color,
             textShadow: `0 0 40px ${color}60`,
           }}
         >
           {title}
         </h2>
-        
-        <div 
+
+        <div
           className="w-24 h-1 mx-auto rounded-full"
           style={{ background: `linear-gradient(90deg, transparent, ${color}, transparent)` }}
         />
@@ -863,13 +893,177 @@ const Committees = () => {
   const heads = teamMembers.filter(m => m.category === 'heads');
   const coordinators = teamMembers.filter(m => m.category === 'coordinators');
   const boardMembers = teamMembers.filter(m => m.category === 'board');
-  
+
   // Coordinator - Harsh Pandhe is the main coordinator
   const mainCoordinator = teamMembers.find(m => m.name === 'Harsh Pandhe')!;
+  const [huntOpen, setHuntOpen] = useState(false);
+  const [huntStatus, setHuntStatus] = useState<'idle' | 'running' | 'win' | 'lose'>('idle');
+  const [huntScore, setHuntScore] = useState(0);
+  const [huntTimeLeft, setHuntTimeLeft] = useState(15);
+  const [huntTarget, setHuntTarget] = useState({ x: 50, y: 50 });
+  const huntTimerRef = useRef<number | null>(null);
+  const huntMoveRef = useRef<number | null>(null);
+
+  const stopHunt = () => {
+    if (huntTimerRef.current) {
+      window.clearInterval(huntTimerRef.current);
+      huntTimerRef.current = null;
+    }
+    if (huntMoveRef.current) {
+      window.clearInterval(huntMoveRef.current);
+      huntMoveRef.current = null;
+    }
+  };
+
+  const randomTarget = () => ({
+    x: 10 + Math.random() * 80,
+    y: 15 + Math.random() * 70,
+  });
+
+  const startHunt = () => {
+    stopHunt();
+    setHuntScore(0);
+    setHuntTimeLeft(15);
+    setHuntStatus('running');
+    setHuntTarget(randomTarget());
+
+    huntTimerRef.current = window.setInterval(() => {
+      setHuntTimeLeft((time) => {
+        if (time <= 1) {
+          setHuntStatus('lose');
+          stopHunt();
+          return 0;
+        }
+        return time - 1;
+      });
+    }, 1000);
+
+    huntMoveRef.current = window.setInterval(() => {
+      setHuntTarget(randomTarget());
+    }, 700);
+  };
+
+  useEffect(() => {
+    const sequence = 'CREW';
+    let buffer = '';
+    const onKey = (event: KeyboardEvent) => {
+      buffer = `${buffer}${event.key.toUpperCase()}`.slice(-sequence.length);
+      if (buffer === sequence) {
+        setHuntOpen(true);
+      }
+    };
+
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  useEffect(() => {
+    if (!huntOpen) {
+      stopHunt();
+      setHuntStatus('idle');
+      setHuntScore(0);
+      setHuntTimeLeft(15);
+    }
+
+    return () => stopHunt();
+  }, [huntOpen]);
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden">
       <MatrixBackground />
+
+      <AnimatePresence>
+        {huntOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="w-full max-w-md rounded-2xl border border-green-500/40 bg-black/90 p-5 sm:p-6"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <p className="font-mono text-xs text-green-400">HIDDEN_PROTOCOL</p>
+                  <h3 className="font-arcade text-lg text-green-300">BADGE HUNT</h3>
+                </div>
+                <button
+                  onClick={() => setHuntOpen(false)}
+                  className="text-green-400 hover:text-green-200 text-sm"
+                >
+                  CLOSE
+                </button>
+              </div>
+
+              <p className="font-mono text-xs text-gray-400 mb-4">
+                Click the glowing badge 5 times before the timer hits 0.
+              </p>
+
+              <div className="flex items-center justify-between font-mono text-xs text-green-400 mb-3">
+                <span>HITS: {huntScore}/5</span>
+                <span>TIME: {huntTimeLeft}s</span>
+              </div>
+
+              <div className="relative h-40 sm:h-48 rounded-xl border border-green-500/20 bg-black/70 overflow-hidden">
+                {huntStatus === 'running' && (
+                  <button
+                    onClick={() => {
+                      if (huntStatus !== 'running') return;
+                      setHuntScore((score) => {
+                        const next = score + 1;
+                        if (next >= 5) {
+                          setHuntStatus('win');
+                          stopHunt();
+                        }
+                        return next;
+                      });
+                      setHuntTarget(randomTarget());
+                    }}
+                    className="absolute w-8 h-8 rounded-full bg-green-400 shadow-[0_0_20px_rgba(34,197,94,0.8)]"
+                    style={{
+                      left: `${huntTarget.x}%`,
+                      top: `${huntTarget.y}%`,
+                      transform: 'translate(-50%, -50%)',
+                    }}
+                  />
+                )}
+
+                {huntStatus === 'idle' && (
+                  <div className="absolute inset-0 flex items-center justify-center text-green-300/70 font-mono text-xs">
+                    READY FOR SCAN
+                  </div>
+                )}
+
+                {huntStatus === 'win' && (
+                  <div className="absolute inset-0 flex items-center justify-center text-green-400 font-arcade text-sm">
+                    ACCESS GRANTED
+                  </div>
+                )}
+
+                {huntStatus === 'lose' && (
+                  <div className="absolute inset-0 flex items-center justify-center text-red-400 font-arcade text-sm">
+                    ACCESS DENIED
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-4 flex items-center justify-between">
+                <button
+                  onClick={startHunt}
+                  className="px-4 py-2 text-xs font-arcade border border-green-500/50 text-green-300 hover:bg-green-500/10"
+                >
+                  {huntStatus === 'running' ? 'RESTART' : 'START'}
+                </button>
+                <span className="text-[10px] text-green-500/60 font-mono">SEQ: CREW</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Navigation */}
       <motion.nav
@@ -885,7 +1079,7 @@ const Committees = () => {
               </motion.div>
               <span className="font-mono text-sm hidden sm:inline">EXIT_MATRIX</span>
             </Link>
-            
+
             <div className="flex items-center gap-3">
               <motion.div
                 animate={{ opacity: [1, 0.5, 1] }}
@@ -902,7 +1096,7 @@ const Committees = () => {
       {/* Hero */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 z-10 overflow-hidden">
         {/* Animated grid background */}
-        <div 
+        <div
           className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `
@@ -912,10 +1106,10 @@ const Committees = () => {
             backgroundSize: '50px 50px',
           }}
         />
-        
+
         {/* Radial glow */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <motion.div 
+          <motion.div
             className="w-[800px] h-[600px] rounded-full"
             style={{
               background: 'radial-gradient(ellipse at center, rgba(34,197,94,0.15) 0%, rgba(34,197,94,0.05) 40%, transparent 70%)',
@@ -932,13 +1126,13 @@ const Committees = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-12"
           >
-            <motion.div 
+            <motion.div
               className="inline-flex items-center gap-4 px-8 py-4 rounded-full border backdrop-blur-md"
               style={{
                 background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,30,0.8) 100%)',
                 borderColor: 'rgba(34,197,94,0.5)',
               }}
-              animate={{ 
+              animate={{
                 boxShadow: [
                   '0 0 30px rgba(34,197,94,0.3), inset 0 0 30px rgba(34,197,94,0.05)',
                   '0 0 60px rgba(34,197,94,0.5), inset 0 0 40px rgba(34,197,94,0.1)',
@@ -974,7 +1168,7 @@ const Committees = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="mb-4"
             >
-              <span 
+              <span
                 className="text-3xl sm:text-4xl md:text-5xl font-mono tracking-[0.5em] text-gray-400"
                 style={{ textShadow: '0 0 30px rgba(34,197,94,0.4)' }}
               >
@@ -990,9 +1184,9 @@ const Committees = () => {
               className="relative flex items-center justify-center"
             >
               {/* Main text with 3D effect */}
-              <h1 
+              <h1
                 className="relative font-black leading-none text-center"
-                style={{ 
+                style={{
                   fontSize: 'clamp(4rem, 12vw, 12rem)',
                   color: '#4ade80',
                   letterSpacing: '0.05em',
@@ -1019,7 +1213,7 @@ const Committees = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <motion.div 
+              <motion.div
                 className="h-px w-32 sm:w-48"
                 style={{ background: 'linear-gradient(90deg, transparent, #22c55e)' }}
                 initial={{ scaleX: 0 }}
@@ -1032,7 +1226,7 @@ const Committees = () => {
                 animate={{ scale: 1, rotate: 45 }}
                 transition={{ delay: 1.4, type: 'spring' }}
               />
-              <motion.div 
+              <motion.div
                 className="h-px w-32 sm:w-48"
                 style={{ background: 'linear-gradient(90deg, #22c55e, transparent)' }}
                 initial={{ scaleX: 0 }}
@@ -1050,7 +1244,7 @@ const Committees = () => {
             className="mb-16"
           >
             <p className="text-xl sm:text-2xl text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
-              Meet the <span className="text-green-400 font-medium">operators</span> who keep 
+              Meet the <span className="text-green-400 font-medium">operators</span> who keep
               <br className="hidden sm:block" /> Project Morpheus running
             </p>
           </motion.div>
@@ -1077,18 +1271,18 @@ const Committees = () => {
                 LEAD ORGANIZER
               </span>
             </motion.div>
-            
-            <h2 
+
+            <h2
               className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4"
-              style={{ 
+              style={{
                 color: '#ff6b35',
                 textShadow: '0 0 40px #ff6b3560',
               }}
             >
               EVENT COORDINATOR
             </h2>
-            
-            <div 
+
+            <div
               className="w-24 h-1 mx-auto rounded-full"
               style={{ background: 'linear-gradient(90deg, transparent, #ff6b35, transparent)' }}
             />
@@ -1121,18 +1315,18 @@ const Committees = () => {
                 ADVISORY BOARD
               </span>
             </motion.div>
-            
-            <h2 
+
+            <h2
               className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-4"
-              style={{ 
+              style={{
                 color: '#8b5cf6',
                 textShadow: '0 0 40px #8b5cf660',
               }}
             >
               ADVISORY BOARD MEMBERS
             </h2>
-            
-            <div 
+
+            <div
               className="w-24 h-1 mx-auto rounded-full"
               style={{ background: 'linear-gradient(90deg, transparent, #8b5cf6, transparent)' }}
             />

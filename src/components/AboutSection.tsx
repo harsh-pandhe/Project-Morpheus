@@ -368,20 +368,6 @@ const AboutSection = () => {
       id="about"
       className="relative py-32 px-4 overflow-hidden text-white selection:bg-[#00FF00] selection:text-black"
     >
-      {/* NOTE: ideally move this font import to your global CSS or _document.tsx */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
-        .font-arcade { font-family: "Press Start 2P", cursive; }
-        .font-mono { font-family: "Roboto", monospace; }
-        .text-primary { color: #00FF00; }
-        .border-primary { border-color: #00FF00; }
-        .bg-primary { background-color: #00FF00; }
-        .float-binary {
-          pointer-events: none;
-          user-select: none;
-        }
-      `}</style>
-
       {/* Binary particles background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 30 }).map((_, i) => (

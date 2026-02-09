@@ -7,8 +7,8 @@ const timelineEvents = [
     date: 'DEC 5',
     year: '2025',
     title: 'Registration Opens',
-    description: 'The portal opens. Teams can begin registration.',
-    status: 'active',
+    description: 'The portal opened and onboarding began.',
+    status: 'completed',
     icon: CheckCircle2,
     color: 'text-primary',
     lineColor: 'bg-primary',
@@ -16,9 +16,9 @@ const timelineEvents = [
   {
     date: 'JAN 28',
     year: '2026',
-    title: 'Registration Closes',
-    description: 'Final deadline. No extensions. Choose wisely.',
-    status: 'upcoming',
+    title: 'Registration Closed',
+    description: 'Registrations are now closed. Shortlisting complete.',
+    status: 'completed',
     icon: AlertCircle,
     color: 'text-secondary',
     lineColor: 'bg-secondary',
@@ -26,18 +26,18 @@ const timelineEvents = [
   {
     date: 'FEB W1',
     year: '2026',
-    title: 'Round Two Begins',
-    description: 'Google Meet encounters. Pitch to the Council.',
-    status: 'upcoming',
-    icon: Circle,
-    color: 'text-muted-foreground',
-    lineColor: 'bg-muted-foreground/30',
+    title: 'Round Two Complete',
+    description: 'Online pitches concluded. Awaiting the final construct.',
+    status: 'completed',
+    icon: CheckCircle2,
+    color: 'text-primary',
+    lineColor: 'bg-primary',
   },
   {
     date: 'FEB 26',
     year: '2026',
     title: 'The Construct Awaits',
-    description: '24 hours at SIT Lonavala. Build. Code. Deploy.',
+    description: 'Final 24 hours at SIT Lonavala. Build. Code. Deploy.',
     status: 'flashing',
     icon: Zap,
     color: 'text-primary',
@@ -69,7 +69,7 @@ const TimelineNode = ({ event, index, isLast }: {
             flex items-center justify-center cursor-pointer mb-0
             ${event.color} border-current
             ${isFlashing ? 'node-pulse' : ''}
-            ${event.status === 'active' ? 'bg-primary/30 shadow-lg shadow-primary/50' : 'bg-black/60 backdrop-blur-sm'}
+            ${event.status === 'active' ? 'bg-primary/30 shadow-lg shadow-primary/50' : event.status === 'completed' ? 'bg-primary/10 shadow-lg shadow-primary/20' : 'bg-black/60 backdrop-blur-sm'}
             hover:shadow-2xl transition-all duration-300
           `}
           whileHover={{ 
@@ -180,6 +180,19 @@ const TimelineNode = ({ event, index, isLast }: {
               >
                 🟢 LIVE NOW
               </motion.span>
+            </motion.div>
+          )}
+
+          {event.status === 'completed' && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="mt-4 inline-block"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="font-mono text-xs xs:text-sm sm:text-base md:text-lg text-primary border border-primary/50 bg-primary/10 px-3 xs:px-4 sm:px-6 py-2 xs:py-3 rounded break-words text-center">
+                ✅ COMPLETED
+              </span>
             </motion.div>
           )}
 

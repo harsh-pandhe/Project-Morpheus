@@ -11,6 +11,9 @@ export default function GLBLoader({ modelPath }: GLBLoaderProps) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let cleanup: (() => void) | undefined;
+    let isMounted = true;
+
     const loadModel = async () => {
       try {
         if (!containerRef.current) return;
@@ -31,8 +34,8 @@ export default function GLBLoader({ modelPath }: GLBLoaderProps) {
         );
         camera.position.set(0, 0, 3);
 
-        const renderer = new THREE.WebGLRenderer({ 
-          antialias: true, 
+        const renderer = new THREE.WebGLRenderer({
+          antialias: true,
           alpha: true,
           precision: 'highp'
         });
@@ -71,22 +74,25 @@ export default function GLBLoader({ modelPath }: GLBLoaderProps) {
               reject
             );
           });
-          
+
           model = gltf.scene as THREE.Group;
           scene.add(model);
           model.scale.set(1.2, 1.2, 1.2);
 
-          setLoading(false);
+          if (isMounted) setLoading(false);
         } catch (loadError) {
           console.warn(`Failed to load ${modelPath}:`, loadError);
-          setError(`Could not load model: ${modelPath}`);
-          setLoading(false);
+          if (isMounted) {
+            setError(`Could not load model: ${modelPath}`);
+            setLoading(false);
+          }
           return;
         }
 
         // Animation loop
+        let frameId = 0;
         const animate = () => {
-          requestAnimationFrame(animate);
+          frameId = requestAnimationFrame(animate);
 
           if (model) {
             model.rotation.y += 0.003;
@@ -109,24 +115,34 @@ export default function GLBLoader({ modelPath }: GLBLoaderProps) {
 
         window.addEventListener('resize', handleResize);
 
-        return () => {
+        cleanup = () => {
           window.removeEventListener('resize', handleResize);
-          containerRef.current?.removeChild(renderer.domElement);
+          cancelAnimationFrame(frameId);
+          if (containerRef.current?.contains(renderer.domElement)) {
+            containerRef.current.removeChild(renderer.domElement);
+          }
           renderer.dispose();
         };
       } catch (err) {
         console.error('GLBLoader Error:', err);
-        setError('Error loading 3D model');
-        setLoading(false);
+        if (isMounted) {
+          setError('Error loading 3D model');
+          setLoading(false);
+        }
       }
     };
 
     loadModel();
+
+    return () => {
+      isMounted = false;
+      cleanup?.();
+    };
   }, [modelPath]);
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className="w-full h-full"
       style={{ position: 'relative' }}
     >

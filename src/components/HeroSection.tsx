@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Disc3, Menu, X } from 'lucide-react';
 import GLBLoader from './GLBLoader';
@@ -12,6 +12,27 @@ import {
 const HeroSection = () => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLowPower, setIsLowPower] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+      const saveData = connection?.saveData ?? false;
+      const isMobile = window.innerWidth < 768;
+      setIsLowPower(media.matches || saveData || isMobile);
+    };
+
+    update();
+    media.addEventListener?.('change', update);
+    window.addEventListener('resize', update);
+
+    return () => {
+      media.removeEventListener?.('change', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -30,10 +51,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/70 backdrop-blur-md z-0" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 z-0 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 z-0 pointer-events-none" />
-      
+
       {/* Radial glow center */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-0 pointer-events-none" />
-      
+
       {/* Top Navigation Bar */}
       <div className="absolute top-0 left-0 right-0 z-20 py-4">
         <div className="w-full flex justify-between items-center px-4 md:justify-center">
@@ -103,7 +124,7 @@ const HeroSection = () => {
                 >
                   {'>'} Home
                 </motion.a>
-                
+
                 <motion.a
                   href="/problem-statement"
                   className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
@@ -112,7 +133,7 @@ const HeroSection = () => {
                 >
                   {'>'} Problem Statement
                 </motion.a>
-                
+
                 <motion.a
                   href="/guidelines"
                   className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
@@ -121,7 +142,7 @@ const HeroSection = () => {
                 >
                   {'>'} Guidelines
                 </motion.a>
-                
+
                 <motion.a
                   href="/committees"
                   className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
@@ -130,7 +151,7 @@ const HeroSection = () => {
                 >
                   {'>'} Committees
                 </motion.a>
-                
+
                 <motion.a
                   href="/faqs"
                   className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors py-2 border-b border-primary/10"
@@ -139,9 +160,9 @@ const HeroSection = () => {
                 >
                   {'>'} FAQs
                 </motion.a>
-                
+
                 {/* Creator page intentionally removed */}
-                
+
                 <motion.a
                   href="https://unstop.com/p/project-morpheus-2026-24-hour-hackathon-sinhgad-institute-of-technology-lonavala-1605670"
                   target="_blank"
@@ -156,7 +177,7 @@ const HeroSection = () => {
           )}
         </AnimatePresence>
       </div>
-      
+
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
         {/* Left Content */}
         <motion.div
@@ -174,13 +195,13 @@ const HeroSection = () => {
             >
               {'>'} System Initializing...
             </motion.p>
-            
+
             <h1 className="font-arcade text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary text-3d-large leading-tight">
               PROJECT
               <br />
               MORPHEUS
             </h1>
-            
+
             <p className="font-mono text-muted-foreground text-base sm:text-lg max-w-md mx-auto lg:mx-0">
               WAKE UP. BUILD THE FUTURE.
               <span className="text-primary animate-blink">_</span>
@@ -214,119 +235,129 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-          {/* Right Content - Holographic Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="perspective-1000 flex justify-center order-1 lg:order-2"
+        {/* Right Content - Holographic Card */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="perspective-1000 flex justify-center order-1 lg:order-2"
+        >
+          <div
+            className="preserve-3d relative w-full max-w-sm sm:max-w-md aspect-[3/4] cursor-pointer"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+              transition: 'transform 0.1s ease-out',
+            }}
           >
-            <div
-              className="preserve-3d relative w-full max-w-sm sm:max-w-md aspect-[3/4] cursor-pointer"
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-                transition: 'transform 0.1s ease-out',
-              }}
-            >
-              {/* Card Background */}
-              <div className="absolute inset-0 glass-card rounded-lg overflow-hidden border-2 border-primary/60 shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300">
-                {/* Holographic shimmer */}
-                <div className="absolute inset-0 bg-shimmer-gradient bg-[length:200%_100%] animate-shimmer opacity-30" />
-                
-                {/* Scan line */}
-                <div className="scan-line" />
-                
-                {/* HUD Elements */}
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                  <div className="font-mono text-xs text-primary/60">
-                    <p>ID: MRP-2026</p>
-                    <p>CLASS: OPERATOR</p>
-                  </div>
-                  <Disc3 className="text-primary animate-spin" style={{ animationDuration: '3s' }} />
-                </div>
+            {/* Card Background */}
+            <div className="absolute inset-0 glass-card rounded-lg overflow-hidden border-2 border-primary/60 shadow-2xl shadow-primary/30 hover:shadow-primary/50 transition-all duration-300">
+              {/* Holographic shimmer */}
+              <div className="absolute inset-0 bg-shimmer-gradient bg-[length:200%_100%] animate-shimmer opacity-30" />
 
-                {/* Center Content - GLB 3D Model */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* 3D Model Container */}
-                    <div className="absolute inset-8 z-10">
-                      <GLBLoader modelPath="/models/matrix_-_sentinel_-_tentacles_-_robot__eo_total.glb" />
-                    </div>
-                    
-                    {/* Status overlay */}
-                    <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20">
-                      <div className="font-arcade text-xs text-primary/60 text-center">
-                        [SENTINEL]
-                        <br />
-                        <span className="text-secondary text-glow">ACTIVE</span>
+              {/* Scan line */}
+              <div className="scan-line" />
+
+              {/* HUD Elements */}
+              <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
+                <div className="font-mono text-xs text-primary/60">
+                  <p>ID: MRP-2026</p>
+                  <p>CLASS: OPERATOR</p>
+                </div>
+                <Disc3 className="text-primary animate-spin" style={{ animationDuration: '3s' }} />
+              </div>
+
+              {/* Center Content - GLB 3D Model */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-full h-full">
+                  {/* 3D Model Container */}
+                  <div className="absolute inset-8 z-10">
+                    {isLowPower ? (
+                      <div className="w-full h-full rounded-lg border border-primary/40 bg-black/70 flex items-center justify-center">
+                        <div className="text-center font-arcade text-xs text-primary/70">
+                          [SENTINEL OFFLINE]
+                          <br />
+                          <span className="text-secondary">LOW-POWER MODE</span>
+                        </div>
                       </div>
+                    ) : (
+                      <GLBLoader modelPath="/models/matrix_-_sentinel_-_tentacles_-_robot__eo_total.glb" />
+                    )}
+                  </div>
+
+                  {/* Status overlay */}
+                  <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20">
+                    <div className="font-arcade text-xs text-primary/60 text-center">
+                      [SENTINEL]
+                      <br />
+                      <span className="text-secondary text-glow">ACTIVE</span>
                     </div>
-                    
-                    {/* Red scan beam */}
+                  </div>
+
+                  {/* Red scan beam */}
+                  <motion.div
+                    className="absolute left-1/2 -translate-x-1/2 w-1 h-32 bg-gradient-to-b from-secondary via-secondary/50 to-transparent z-30"
+                    animate={{
+                      scaleY: [1, 1.2, 1],
+                      opacity: [0.8, 1, 0.8]
+                    }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+
+                  {/* Data particles */}
+                  {[...Array(8)].map((_, i) => (
                     <motion.div
-                      className="absolute left-1/2 -translate-x-1/2 w-1 h-32 bg-gradient-to-b from-secondary via-secondary/50 to-transparent z-30"
-                      animate={{ 
-                        scaleY: [1, 1.2, 1],
-                        opacity: [0.8, 1, 0.8]
+                      key={i}
+                      className="absolute w-0.5 h-0.5 bg-primary/60 rounded-full"
+                      style={{
+                        left: `${25 + i * 8}%`,
+                        top: `${20 + (i % 4) * 20}%`,
                       }}
-                      transition={{ 
-                        duration: 1.5, 
+                      animate={{
+                        y: [-15, 15, -15],
+                        opacity: [0.3, 1, 0.3],
+                        scale: [0.5, 1, 0.5]
+                      }}
+                      transition={{
+                        duration: 3 + i * 0.2,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
+                        delay: i * 0.3
                       }}
                     />
-                    
-                    {/* Data particles */}
-                    {[...Array(8)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-0.5 h-0.5 bg-primary/60 rounded-full"
-                        style={{
-                          left: `${25 + i * 8}%`,
-                          top: `${20 + (i % 4) * 20}%`,
-                        }}
-                        animate={{ 
-                          y: [-15, 15, -15],
-                          opacity: [0.3, 1, 0.3],
-                          scale: [0.5, 1, 0.5]
-                        }}
-                        transition={{ 
-                          duration: 3 + i * 0.2, 
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: i * 0.3
-                        }}
-                      />
-                    ))}
-                  </div>
+                  ))}
                 </div>
-
-                {/* Bottom Info */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="font-mono text-xs text-primary/60 space-y-1">
-                    <div className="flex justify-between">
-                      <span>STATUS:</span>
-                      <span className="text-primary flicker">ACTIVE</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>LOCATION:</span>
-                      <span>SIT LONAVALA</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>DATE:</span>
-                      <span>FEB 26, 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Corner brackets */}
-                <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-primary" />
-                <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-primary" />
-                <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-primary" />
-                <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-primary" />
               </div>
+
+              {/* Bottom Info */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="font-mono text-xs text-primary/60 space-y-1">
+                  <div className="flex justify-between">
+                    <span>STATUS:</span>
+                    <span className="text-primary flicker">ACTIVE</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>LOCATION:</span>
+                    <span>SIT LONAVALA</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>DATE:</span>
+                    <span>FEB 26, 2026</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Corner brackets */}
+              <div className="absolute top-2 left-2 w-6 h-6 border-l-2 border-t-2 border-primary" />
+              <div className="absolute top-2 right-2 w-6 h-6 border-r-2 border-t-2 border-primary" />
+              <div className="absolute bottom-2 left-2 w-6 h-6 border-l-2 border-b-2 border-primary" />
+              <div className="absolute bottom-2 right-2 w-6 h-6 border-r-2 border-b-2 border-primary" />
+            </div>
           </div>
         </motion.div>
       </div>
